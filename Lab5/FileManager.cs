@@ -1,6 +1,3 @@
-using System.Diagnostics.SymbolStore;
-using System.Text;
-
 namespace Lab5;
 
 public class FileManager
@@ -10,11 +7,20 @@ public class FileManager
     {
         var result = new Dictionary<string, string>();
         
-        string directoryName = "/Users/valdemar/Склад/Драгопед/Обʼєктно-орієнтоване програмування/Готове/Лаб5/test_news";
-        var directory = new DirectoryInfo(directoryName);
-        var subdirectories = directory.GetDirectories();
+        string directoryName = "/Users/valdemar/Склад/Драгопед/Обʼєктно-орієнтоване програмування/Готове/Лаб5/test_news/";
+        DirectoryInfo directory;
+        try
+        {
+            directory = new DirectoryInfo(directoryName);
+        }
+        catch (DirectoryNotFoundException e)
+        {
+            Console.WriteLine(e.Message);
+            return result;
+        }
         
-        Console.WriteLine("Subdirectories count = " + subdirectories.Length);
+        
+        var subdirectories = directory.GetDirectories();
         
         foreach (var subdirectory in subdirectories)
         {
@@ -32,8 +38,6 @@ public class FileManager
                 }
             }
         }
-        
-        //Console.WriteLine(result["amilton-tops-belgian-gp-qualifying-for-fourth-consecutive-pole"]);
 
         return result;
     }
@@ -46,6 +50,17 @@ public class FileManager
         Directory.CreateDirectory(directoryPath);
         
         using StreamWriter writer = new StreamWriter(filePath);
-        writer.Write(contents);
+        try
+        {
+            writer.Write(contents);
+        }
+        catch (IOException e)
+        {
+            Console.WriteLine(e.Message);
+        }
+        finally
+        {
+            writer.Close();
+        }
     }
 }

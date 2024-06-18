@@ -7,9 +7,6 @@ public class TextAnalyzer
 
     public Dictionary<string, string> PreprocessText(Dictionary<string, string> text)
     {
-        
-        //Console.WriteLine(ToLowerCase(RemovePunctuation(text["amilton-tops-belgian-gp-qualifying-for-fourth-consecutive-pole"])));
-        
         foreach (var pair in text)
         {
             var noPunctuation = RemovePunctuation(pair.Value);
