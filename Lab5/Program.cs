@@ -12,10 +12,15 @@ class Program
         var companies = textAnalyzer.ExtractCompaniesInfo(preprocessedText);
         
         Console.WriteLine(companies.Count);
-        foreach (var company in companies)
+        
+        foreach (var mentionedTextFileName in companies[0].MentionedTextFileNames)
         {
-            Console.WriteLine(company);
+            Console.WriteLine(mentionedTextFileName);
         }
+        // foreach (var company in companies)
+        // {
+        //     Console.WriteLine(company);
+        // }
         
     }
 }
