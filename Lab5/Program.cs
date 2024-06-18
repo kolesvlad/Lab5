@@ -6,21 +6,12 @@ class Program
     {
         var fileManager = new FileManager();
         var textAnalyzer = new TextAnalyzer();
+        var reportGenerator = new ReportGenerator();
         
         var originalText = fileManager.ReadTextFiles();
         var preprocessedText = textAnalyzer.PreprocessText(originalText);
         var companies = textAnalyzer.ExtractCompaniesInfo(preprocessedText);
         
-        Console.WriteLine(companies.Count);
-        
-        foreach (var mentionedTextFileName in companies[0].MentionedTextFileNames)
-        {
-            Console.WriteLine(mentionedTextFileName);
-        }
-        // foreach (var company in companies)
-        // {
-        //     Console.WriteLine(company);
-        // }
-        
+        reportGenerator.CreateReport(companies, fileManager);
     }
 }

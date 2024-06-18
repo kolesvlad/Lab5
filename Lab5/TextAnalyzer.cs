@@ -51,7 +51,10 @@ public class TextAnalyzer
                 Regex regex = new Regex(company.OfficialName);
                 var matchCount = regex.Matches(pair.Value).Count;
                 company.MentionCount += matchCount;
-                company.MentionedTextFileNames.Add(pair.Key);
+                if (matchCount > 0)
+                {
+                    company.MentionedTextFileNames.Add(pair.Key);
+                }
             }
         }
 

@@ -1,4 +1,5 @@
 using System.Diagnostics.SymbolStore;
+using System.Text;
 
 namespace Lab5;
 
@@ -35,5 +36,16 @@ public class FileManager
         //Console.WriteLine(result["amilton-tops-belgian-gp-qualifying-for-fourth-consecutive-pole"]);
 
         return result;
+    }
+
+    public void WriteReportText(string fileName, string contents)
+    {
+        string directoryPath = "/Users/valdemar/Склад/Драгопед/Обʼєктно-орієнтоване програмування/Готове/Лаб5/Reports";
+        string filePath = directoryPath + "/" + fileName;
+        
+        Directory.CreateDirectory(directoryPath);
+        
+        using StreamWriter writer = new StreamWriter(filePath);
+        writer.Write(contents);
     }
 }
