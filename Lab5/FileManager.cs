@@ -9,8 +9,8 @@ public class FileManager
     {
         var result = new Dictionary<string, string>();
         
-        string dirName = "/Users/valdemar/Склад/Драгопед/Обʼєктно-орієнтоване програмування/Готове/Лаб5/test_news";
-        var directory = new DirectoryInfo(dirName);
+        string directoryName = "/Users/valdemar/Склад/Драгопед/Обʼєктно-орієнтоване програмування/Готове/Лаб5/test_news";
+        var directory = new DirectoryInfo(directoryName);
         var subdirectories = directory.GetDirectories();
         
         Console.WriteLine("Subdirectories count = " + subdirectories.Length);
