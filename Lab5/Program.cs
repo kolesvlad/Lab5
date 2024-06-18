@@ -1,3 +1,9 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using Lab5;
 
-Console.WriteLine("Hello, World!");
+class Program
+{
+    static void Main()
+    {
+        new FileManager().ReadTextFiles();
+    }
+}
