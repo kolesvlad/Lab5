@@ -9,6 +9,13 @@ class Program
         
         var originalText = fileManager.ReadTextFiles();
         var preprocessedText = textAnalyzer.PreprocessText(originalText);
+        var companies = textAnalyzer.ExtractCompaniesInfo(preprocessedText);
+        
+        Console.WriteLine(companies.Count);
+        foreach (var company in companies)
+        {
+            Console.WriteLine(company);
+        }
         
     }
 }
