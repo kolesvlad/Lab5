@@ -45,7 +45,7 @@ public class FileManager
     public void WriteReportText(string fileName, string contents)
     {
         string directoryPath = "/Users/valdemar/Склад/Драгопед/Обʼєктно-орієнтоване програмування/Готове/Лаб5/Reports";
-        string filePath = directoryPath + "/" + fileName;
+        string filePath = directoryPath + "/" + fileName + ".json";
         
         Directory.CreateDirectory(directoryPath);
         
